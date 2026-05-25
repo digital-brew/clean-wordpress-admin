@@ -33,22 +33,6 @@ add_filter(
 
 
 /**
- * Customize the image sizes attribute string
- *
- * @link https://developer.wordpress.org/reference/hooks/wp_calculate_image_sizes/
- */
-add_filter(
-	'wp_calculate_image_sizes',
-	function ( $size ) {
-		return 'auto, ' . $size;
-	},
-	10,
-	1
-);
-
-
-
-/**
  * Remove image sizes (and create new ones)
  *
  * @link https://developer.wordpress.org/reference/functions/remove_image_size/
