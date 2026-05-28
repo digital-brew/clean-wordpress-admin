@@ -76,7 +76,9 @@ wp.domReady(function () {
   // Unregister all group variations (like Grid, Stack, etc.)
   const variations = wp.blocks.getBlockVariations('core/group')
   variations.forEach((blockVariation) => {
-    wp.blocks.unregisterBlockVariation('core/group', blockVariation.name)
+    if (blockVariation.name !== 'group') {
+      wp.blocks.unregisterBlockVariation('core/group', blockVariation.name)
+    }
   })
 })
 
