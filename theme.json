@@ -51,9 +51,9 @@
         "dimensions": {
             "aspectRatio": false
         },
-				"filter": {
-					"duotone": false
-				},
+        "filter": {
+            "duotone": false
+        },
         "shadow": {
             "defaultPresets": false
         },
@@ -69,8 +69,9 @@
             "fontStyle": false,
             "fontWeight": false,
             "letterSpacing": false,
-						"textAlign": false,
+            "textAlign": false,
             "textDecoration": false,
+            "textIndent": false,
             "textTransform": false
         }
     }
