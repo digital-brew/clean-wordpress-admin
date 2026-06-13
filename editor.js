@@ -8,20 +8,33 @@ wp.hooks.addFilter(
   `${ThemeNamespace}/editor`,
   function (settings, name) {
     switch (name) {
-      // Image bock
+      case 'core/paragraph': {
+        // Disable fit text for paragraphs
+        if (settings?.supports?.typography?.fitText) {
+          settings.supports.typography.fitText = false
+        }
+      }
+      case 'core/heading': {
+        // Disable fit text for paragraphs
+        if (settings?.supports?.typography?.fitText) {
+          settings.supports.typography.fitText = false
+        }
+      }
       case 'core/file': {
-        settings.attributes.showDownloadButton.default = false // Hide download button from file links
+        // Hide download button from file links
+        settings.attributes.showDownloadButton.default = false
         break
       }
       case 'core/video': {
+        // Set default attributes for video blocks
         settings.attributes.loop.default = true
         settings.attributes.playsInline.default = true
         settings.attributes.muted.default = true
         settings.attributes.autoplay.default = true
         settings.attributes.controls.default = false
       }
-
       case 'core/image': {
+        // Remove styles from image blocks
         settings.styles = []
       }
     }
