@@ -16,13 +16,27 @@ add_action(
 
 
 
-
 /**
  * Remove oEmbed-specific JavaScript from the front-end and back-end.
  *
  * @link https://developer.wordpress.org/reference/functions/wp_oembed_add_host_js/
  */
 remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+
+
+
+/**
+ * Remove resource hints
+ *
+ * @link https://developer.wordpress.org/reference/hooks/wp_resource_hints/
+ */
+add_action(
+	'init',
+	function () {
+		remove_action( 'wp_head', 'wp_resource_hints', 2, 99 );
+	}
+);
+
 
 
 /**
@@ -37,6 +51,7 @@ function remove_script_version( $src ) {
 
 add_filter( 'script_loader_src', 'remove_script_version', 15, 1 );
 add_filter( 'style_loader_src', 'remove_script_version', 15, 1 );
+
 
 
 /**
